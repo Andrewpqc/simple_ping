@@ -18,4 +18,4 @@ class PingInfo(db.Model):
     location=db.Column(db.String(100),default="unknow")
     link=db.Column(db.String(200))
     email=db.Column(db.String(100),default="unknow")
-    requirements=db.relationship(Requirement)
+    requirements=db.relationship(Requirement,backref="pinginfo")
