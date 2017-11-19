@@ -11,9 +11,27 @@ def index():
     pinginfos=PingInfo.query.all()
     for pinginfo in pinginfos:
         temp={}
-        temp["company"]=pinginfo.company
-        temp["category"]=pinginfo.category
-        temp["pingType"]=pinginfo.pingType
+        if pinginfo.company==2:
+            temp["company"]="百度"
+        elif pinginfo.company==3:
+            temp["company"]="奇虎306"
+        elif pinginfo.company==4:
+            temp["company"]="Vivo"
+
+        if pinginfo.category==1:
+            temp["category"]="技术"
+        elif pinginfo.category==2:
+            temp["category"]="产品"
+        elif pinginfo.category==3:
+            temp["category"]="设计"
+        elif pinginfo.category==4:
+            temp["category"]="市场"
+
+        if pinginfo.pingType==0:
+            temp["pingType"]="实习生招聘"
+        elif pinginfo.pingType==1:
+            temp["pingType"]="校园招聘"
+
         temp["jobTitle"]=pinginfo.jobTitle
         temp["time"]=pinginfo.time
         temp["location"]=pinginfo.location
