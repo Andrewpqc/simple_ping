@@ -9,6 +9,7 @@ Flask-Script==2.0.6
 Flask-SQLAlchemy==2.3.2
 itsdangerous==0.24
 Jinja2==2.9.6
+lxml==4.1.1
 Mako==1.0.7
 MarkupSafe==1.0
 mysql-connector-python-rf==2.2.2
