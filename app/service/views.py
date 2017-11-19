@@ -1,12 +1,13 @@
-from flask import jsonify
+from flask import jsonify,Response
 from . import service
 from app.models import Requirement,PingInfo
 from manage import command_360,command_vivo,command_baidu
 from app import db
+import json
 
 @service.route('/simpleping')
 def index():
-    a={"ping":[]}
+    a=[]
     pinginfos=PingInfo.query.all()
     for pinginfo in pinginfos:
         temp={}
@@ -21,8 +22,8 @@ def index():
         temp["requirements"]=[]
         for req in pinginfo.requirements:
             temp["requirements"].append(req.text)
-        a["ping"].append(temp)
-    return jsonify(a)
+        a.append(temp)
+    return Response(json.dumps(a),mimetype="application/json")
 
 @service.route("/flush")
 def flush():
